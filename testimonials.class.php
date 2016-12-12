@@ -7,8 +7,6 @@ class Testimonials {
 		if ( ! self::$initiated ) {
 			self::$initiated = true;
 			self::init_hooks();
-			self::createVars();
-			self::createCookieWall();
 		}
 	}
 	
@@ -18,7 +16,7 @@ class Testimonials {
 	private static function init_hooks() {
 		self::register_post_types();
 		//add_shortcode( 'accept_button', array('CookieWall', 'shrt_cookieAccept') );
-		load_plugin_textdomain(COOKIE_WALL_TEXT_DOMAIN, false, COOKIE_WALL_PLUGIN_DIR.'/translations/');	
+		load_plugin_textdomain(TROPICAL_TESTIMONIALS_TEXT_DOMAIN, false, TROPICAL_TESTIMONIALS_PLUGIN_DIR.'/translations/');	
 	}
 	
 	public static function register_post_types(){
