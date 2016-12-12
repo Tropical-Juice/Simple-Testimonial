@@ -14,12 +14,31 @@ class Testimonials {
 	 * Initializes Plugin
 	 */
 	private static function init_hooks() {
-		self::register_post_types();
-		//add_shortcode( 'accept_button', array('CookieWall', 'shrt_cookieAccept') );
+		self::registerPostTypes();
+		self::addShortCodes();
 		load_plugin_textdomain(TROPICAL_TESTIMONIALS_TEXT_DOMAIN, false, TROPICAL_TESTIMONIALS_PLUGIN_DIR.'/translations/');	
 	}
 	
-	public static function register_post_types(){
+	public static function addShortCodes(){
+		add_shortcode( 'testimonial', array('Testimonials', 'shortcodeTestimonialInput') );
+	}
+	
+	public static function shortcodeTestimonialInput(){
+		ob_start();
+		include('templates/form.php');
+		return ob_get_clean();
+	}
+	
+	private static function getTemplatePart($slug, $name = null){
+		$templates = array();
+	    $name = (string) $name;
+	    if ( '' !== $name )
+	        $templates[] = "{$slug}-{$name}.php";
+	    $templates[] = "{$slug}.php";,,mmnn
+	    locate_template($templates, true, false);
+	}
+	
+	public static function registerPostTypes(){
 		$labels = array(
 			'name'                  => _x( 'Testimonials', 'Post Type General Name', 'tropical_testimonials' ),
 			'singular_name'         => _x( 'Testimonial', 'Post Type Singular Name', 'tropical_testimonials' ),
