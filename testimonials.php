@@ -1,6 +1,6 @@
 <?php
 /*
-	Plugin Name: Testimonials
+	Plugin Name: Simple Google Testimonials
 	Plugin URI: https://tropicaljuice.nl/
 	Description: Users can add testimonials on front-end of website. You can manage these as 'regular' posts at the wp-admin. 
 	Version: 1.0
