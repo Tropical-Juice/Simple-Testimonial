@@ -11,7 +11,7 @@
 			<div class="rating-container">
 				<div id="rateYo"></div>
 				<div class="counter"></div>
-				<input type="hidden" id="input-rating" name="testimonial['function']"><br>
+				<input type="hidden" id="input-rating" name="testimonial['rating']"><br>
 			</div>
 			<label><?php _e('Your testimonial', TROPICAL_TESTIMONIALS_TEXT_DOMAIN) ?></label><br>
 			<textarea name="testimonial[text]" placeholder="<?php _e('Please enter your testimonial', TROPICAL_TESTIMONIALS_TEXT_DOMAIN) ?>"></textarea><br>
