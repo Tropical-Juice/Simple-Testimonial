@@ -24,9 +24,7 @@ class Testimonials {
 	}
 	
 	public static function shortcodeTestimonialInput(){
-		ob_start();
-		include('templates/form.php');
-		return ob_get_clean();
+		return self::getTemplatePart("testimonial-form");
 	}
 	
 	private static function getTemplatePart($slug, $name = null){
@@ -34,8 +32,23 @@ class Testimonials {
 	    $name = (string) $name;
 	    if ( '' !== $name )
 	        $templates[] = "{$slug}-{$name}.php";
-	    $templates[] = "{$slug}.php";,,mmnn
-	    locate_template($templates, true, false);
+	    $templates[] = "{$slug}.php";
+	    $template = locate_template($templates, true, false);
+		if( !$template ){
+			if(!file_exists(dirname(__FILE__) . "/templates/$templates[0]"));
+			    return;
+			    
+			ob_start();
+			include( dirname(__FILE__) . "/templates/$templates[0]" );
+			return ob_get_clean();
+		}
+		if( $template ){
+			if(!file_exists($template));
+			    return;
+			ob_start();
+			include( $template );
+			return ob_get_clean();
+		}
 	}
 	
 	public static function registerPostTypes(){
