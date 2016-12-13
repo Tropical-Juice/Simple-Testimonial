@@ -2,6 +2,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly 
 class Testimonials {
 	private static $initiated = false;
+	private static $error = array(false, 'All Good');
 	
 	public static function init() {
 		if ( ! self::$initiated ) {
@@ -14,10 +15,45 @@ class Testimonials {
 	 * Initializes Plugin
 	 */
 	private static function init_hooks() {
+		self::checkPostData();
 		self::registerStylesScripts();
 		self::registerPostTypes();
 		self::addShortCodes();
 		load_plugin_textdomain(TROPICAL_TESTIMONIALS_TEXT_DOMAIN, false, TROPICAL_TESTIMONIALS_PLUGIN_DIR.'/translations/');	
+	}
+	
+	private static function checkPostData(){
+		if(isset($_POST['testimonial'])) self::addTestimonial($_POST);
+	}
+	
+	private static function addTestimonial($data){
+		$score = (float)$data['rating'];
+		$formFields = array('organization', 'name', 'function', 'rating');
+		if(!self::checkFormData($data, $formFields)){
+			self::throwError(__("All fields are required", TROPICAL_TESTIMONIALS_TEXT_DOMAIN));
+		}
+			//
+	}
+
+	private static function checkFormData($data, $check){
+		$error = false;
+		foreach($check as $field) {
+			if (empty($data[$field])) {
+				die(var_dump($data));
+				$error = true;
+			}
+		}
+		
+		if ($error) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+	
+	private static function throwError($msg){
+		self:$error = array(true, $msg);
+		die(var_dump(self::$error));
 	}
 	
 	public static function addShortCodes(){
