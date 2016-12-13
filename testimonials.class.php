@@ -28,12 +28,14 @@ class Testimonials {
 		wp_enqueue_script("RateYo");
 		wp_enqueue_script("testimonial-js");
 		wp_enqueue_style("RateYo");
+		wp_enqueue_style("testimonial-css");
 		return self::getTemplatePart("testimonial-form");
 	}
 	
 	public static function registerStylesScripts(){
 		//styles
 		wp_register_style("RateYo", "//cdnjs.cloudflare.com/ajax/libs/rateYo/2.2.0/jquery.rateyo.min.css", array(), "2.2.0");
+		wp_register_style("testimonial-css", TROPICAL_TESTIMONIALS_PLUGIN_URI."assets/css/styles.css", array(), "1.0.0");
 		
 		//scripts
 		wp_register_script("testimonial-js", TROPICAL_TESTIMONIALS_PLUGIN_URI."assets/js/app.js", array(), "1.0.0", true);

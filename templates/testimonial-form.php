@@ -8,9 +8,13 @@
 			<label><?php _e('Your position', TROPICAL_TESTIMONIALS_TEXT_DOMAIN) ?></label><br>
 			<input type="text" name="testimonial['function']"><br>
 			<label><?php _e('Your rating', TROPICAL_TESTIMONIALS_TEXT_DOMAIN) ?></label><br>
-			<div id="rateYo"></div><div class="counter"></div><input type="text" id="input-rating" name="testimonial['function']"><br>
+			<div class="rating-container">
+				<div id="rateYo"></div>
+				<div class="counter"></div>
+				<input type="hidden" id="input-rating" name="testimonial['function']"><br>
+			</div>
 			<label><?php _e('Your testimonial', TROPICAL_TESTIMONIALS_TEXT_DOMAIN) ?></label><br>
 			<textarea name="testimonial[text]" placeholder="<?php _e('Please enter your testimonial', TROPICAL_TESTIMONIALS_TEXT_DOMAIN) ?>"></textarea><br>
-			<button class="wpcf7-form-control wpcf7-submit" name="pdf" type="submit"><?php _e('Add testimonial', TROPICAL_TESTIMONIALS_TEXT_DOMAIN) ?></button>
+			<button class="wpcf7-form-control wpcf7-submit" name="testimonial" type="submit"><?php _e('Add testimonial', TROPICAL_TESTIMONIALS_TEXT_DOMAIN) ?></button>
 		</form>
 	</div>
