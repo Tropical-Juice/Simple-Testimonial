@@ -13,7 +13,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit; 
 define( 'TROPICAL_TESTIMONIALS_VERSION', '1.0' );
 define( 'TROPICAL_TESTIMONIALS_MIN_WP_VERSION', '3.7' );
-define( 'TROPICAL_TESTIMONIALS_TEXT_DOMAIN', 'tropical_cookiewall' );
+define( 'TROPICAL_TESTIMONIALS_TEXT_DOMAIN', 'tropical_testimonials' );
 define( 'TROPICAL_TESTIMONIALS_PLUGIN_DIR_PATH', plugin_dir_path( __FILE__ ) );
 define( 'TROPICAL_TESTIMONIALS_PLUGIN_DIR', basename(dirname(__FILE__)) );
 define( 'TROPICAL_TESTIMONIALS_PLUGIN_URI', plugin_dir_url( __FILE__ ) );
