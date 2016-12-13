@@ -35,16 +35,13 @@ class Testimonials {
 	    $templates[] = "{$slug}.php";
 	    $template = locate_template($templates, true, false);
 		if( !$template ){
-			if(!file_exists(dirname(__FILE__) . "/templates/$templates[0]"));
-			    return;
-			    
+			if(!file_exists(dirname(__FILE__) . "/templates/$templates[0]")) return;
 			ob_start();
 			include( dirname(__FILE__) . "/templates/$templates[0]" );
 			return ob_get_clean();
 		}
 		if( $template ){
-			if(!file_exists($template));
-			    return;
+			if(!file_exists($template)) return;
 			ob_start();
 			include( $template );
 			return ob_get_clean();
