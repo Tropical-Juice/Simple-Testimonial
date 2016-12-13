@@ -31,8 +31,25 @@ class Testimonials {
 		$formFields = array('organization', 'name', 'function', 'rating');
 		if(!self::checkFormData($data, $formFields)){
 			self::throwError(__("All fields are required", TROPICAL_TESTIMONIALS_TEXT_DOMAIN));
+		}else{
+			self::createPost($data);
 		}
-			//
+	}
+	
+	private static function createPost($d){
+		$new_post = array(
+			'ID' => '',
+			'post_author'  => 2, 
+			'post_content' => $d['testimonial_text'], 
+			'post_title'   => sprintf( __('Testimonial of %s', TROPICAL_TESTIMONIALS_TEXT_DOMAIN), $d['name']),
+			'post_status'  => 'pending',
+			'post_type'    => 'testimonials',
+			'meta_input'   => array('organization' => $d['organization'],
+									'name' => $d['name'],
+									'function' => $d['function'],
+									'rating' => $d['rating'])
+        );
+		wp_insert_post($new_post);
 	}
 
 	private static function checkFormData($data, $check){
