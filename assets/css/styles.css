@@ -34,3 +34,10 @@
 	border-style: solid;
 	position: relative;
 }
+
+.testimonial{
+	border: 1px solid #D3D2D2;
+	box-shadow: 0px 0px 29px 0px rgba(0, 0, 0, 0.18);
+	padding: 20px;
+	margin-bottom: 20px;
+}
