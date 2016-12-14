@@ -17,9 +17,118 @@ class Testimonials {
 	private static function init_hooks() {
 		self::checkPostData();
 		self::registerStylesScripts();
-		self::registerPostTypes();
 		self::addShortCodes();
+		self::getInjectedCode();
 		load_plugin_textdomain(TROPICAL_TESTIMONIALS_TEXT_DOMAIN, false, TROPICAL_TESTIMONIALS_PLUGIN_DIR.'/translations/');	
+	}
+	
+	public static function getInjectedCode(){
+		add_action( 'wp_footer', array('Testimonials', 'addRichSnippet' ));
+	}
+	
+	public static function addRichSnippet() {
+		$rating = self::getTotalRating();
+		$total = self::getAmountRatings();
+	    echo "
+	    <script type=\"application/ld+json\">
+{
+  \"@context\": \"http://schema.org/\",
+  \"@type\": \"Organization\",
+  \"name\": \"Clip4you\",
+  \"url\": \"http://clip4you.nl\",
+  \"aggregateRating\": {
+    \"@type\": \"AggregateRating\",
+    \"ratingValue\": \"{$rating}\",
+    \"bestRating\": \"5\",
+    \"worstRating\": \"1\",
+    \"ratingCount\": \"$total\"
+  }
+}
+</script>";
+	}
+	
+	public static function getTotalRating(){
+		$transientname = "testimonial_total";
+		$transient = get_transient($transientname);
+		if( ! empty( $transient ) ) {
+	    	return $transient;
+		} else {
+			$transientData = self::generateTotalRating();
+	    	set_transient( $transientname, $transientData, DAY_IN_SECONDS );
+	    	return $transientData;
+		}
+	}
+	
+	private static function generateTotalRating(){
+		$args = array(
+			'posts_per_page'   => 100000,
+			'offset'           => 0,
+			'category'         => '',
+			'category_name'    => '',
+			'orderby'          => 'date',
+			'order'            => 'DESC',
+			'include'          => '',
+			'exclude'          => '',
+			'meta_key'         => '',
+			'meta_value'       => '',
+			'post_type'        => 'post',
+			'post_mime_type'   => '',
+			'post_parent'      => '',
+			'post_type'		   => 'testimonials',
+			'author'	   => '',
+			'author_name'	   => '',
+			'post_status'      => 'publish',
+			'suppress_filters' => true 
+		);
+		$posts_array = get_posts( $args );
+		$count = 0;
+		$total = 0;
+		foreach ($posts_array as $post){
+			$count ++;
+			$total += (float)get_post_meta($post->ID, 'rating')[0];
+		}
+		return $total / $count;
+	}
+	
+	public static function getAmountRatings(){
+		$transientname = "testimonial_amount";
+		$transient = get_transient($transientname);
+		if( ! empty( $transient ) ) {
+	    	return $transient;
+		} else {
+			$transientData = self::generateAmountRatings();
+	    	set_transient( $transientname, $transientData, DAY_IN_SECONDS );
+	    	return $transientData;
+		}
+	}
+	
+	private static function generateAmountRatings(){
+		$args = array(
+			'posts_per_page'   => 100000,
+			'offset'           => 0,
+			'category'         => '',
+			'category_name'    => '',
+			'orderby'          => 'date',
+			'order'            => 'DESC',
+			'include'          => '',
+			'exclude'          => '',
+			'meta_key'         => '',
+			'meta_value'       => '',
+			'post_type'        => 'post',
+			'post_mime_type'   => '',
+			'post_parent'      => '',
+			'post_type'		   => 'testimonials',
+			'author'	   => '',
+			'author_name'	   => '',
+			'post_status'      => 'publish',
+			'suppress_filters' => true 
+		);
+		$posts_array = get_posts( $args );
+		$count = 0;
+		foreach ($posts_array as $post){
+			$count ++;
+		}
+		return $count;
 	}
 	
 	private static function checkPostData(){
@@ -51,10 +160,18 @@ class Testimonials {
 									'name' => $d['name'],
 									'function' => $d['function'],
 									'rating' => $d['rating'],
-									'testimonial' => $d['testimonial_text'])
+									'testimonial_text' => $d['testimonial_text'])
         );
+        wp_insert_post($new_post);
+        setcookie("testimonial-set",'done',time()+31556926 ,'/');
 		wp_redirect(home_url()."/testimonial/?a=y");
 		exit();
+	}
+	
+	private static function showForm(){
+		if(isset($_COOKIE['testimonial-set'])) return true;
+		if(isset($_GET['a'])) return true;
+		return false;
 	}
 
 	private static function checkFormData($data, $check){
@@ -87,7 +204,7 @@ class Testimonials {
 		wp_enqueue_script("testimonial-js");
 		wp_enqueue_style("RateYo");
 		wp_enqueue_style("testimonial-css");
-		if(isset($_GET['a'])) return self::getTemplatePart("testimonial-submitted");
+		if(self::showForm()) return self::getTemplatePart("testimonial-submitted");
 		return self::getTemplatePart("testimonial-form");
 	}
 	
