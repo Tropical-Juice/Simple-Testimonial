@@ -87,8 +87,8 @@ class Testimonials {
 		wp_enqueue_script("testimonial-js");
 		wp_enqueue_style("RateYo");
 		wp_enqueue_style("testimonial-css");
-		if(isset($_GET['a'])) $okay = self::getTemplatePart("testimonial-submitted");
-		return $okay.self::getTemplatePart("testimonial-form");
+		if(isset($_GET['a'])) return self::getTemplatePart("testimonial-submitted");
+		return self::getTemplatePart("testimonial-form");
 	}
 	
 	public static function registerStylesScripts(){
