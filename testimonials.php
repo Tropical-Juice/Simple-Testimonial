@@ -19,6 +19,6 @@ define( 'TROPICAL_TESTIMONIALS_PLUGIN_DIR', basename(dirname(__FILE__)) );
 define( 'TROPICAL_TESTIMONIALS_PLUGIN_URI', plugin_dir_url( __FILE__ ) );
 define( 'TROPICAL_TESTIMONIALS_PLUGIN_FILE_NAME', plugin_basename(__FILE__) );
 require_once( TROPICAL_TESTIMONIALS_PLUGIN_DIR_PATH . 'testimonials.class.php' );
-add_action( 'wp_loaded', array( 'Testimonials', 'init' ) );
+add_action( 'init', array( 'Testimonials', 'init' ) );
 if ( is_admin() || ( defined( 'WP_CLI' ) && WP_CLI ) ) {
 }
