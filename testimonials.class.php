@@ -24,6 +24,7 @@ class Testimonials {
 	
 	private static function checkPostData(){
 		if(isset($_POST['testimonial'])) self::addTestimonial($_POST);
+		return true;
 	}
 	
 	private static function addTestimonial($data){
@@ -34,22 +35,26 @@ class Testimonials {
 		}else{
 			self::createPost($data);
 		}
+		return true;
 	}
 	
 	private static function createPost($d){
+		global $wp;
 		$new_post = array(
 			'ID' => '',
 			'post_author'  => 2, 
-			'post_content' => $d['testimonial_text'], 
+			'post_content' => '', 
 			'post_title'   => sprintf( __('Testimonial of %s', TROPICAL_TESTIMONIALS_TEXT_DOMAIN), $d['name']),
 			'post_status'  => 'pending',
 			'post_type'    => 'testimonials',
 			'meta_input'   => array('organization' => $d['organization'],
 									'name' => $d['name'],
 									'function' => $d['function'],
-									'rating' => $d['rating'])
+									'rating' => $d['rating'],
+									'testimonial' => $d['testimonial_text'])
         );
-		wp_insert_post($new_post);
+		wp_redirect(home_url()."/testimonial/?a=y");
+		exit();
 	}
 
 	private static function checkFormData($data, $check){
@@ -82,7 +87,8 @@ class Testimonials {
 		wp_enqueue_script("testimonial-js");
 		wp_enqueue_style("RateYo");
 		wp_enqueue_style("testimonial-css");
-		return self::getTemplatePart("testimonial-form");
+		if(isset($_GET['a'])) $okay = self::getTemplatePart("testimonial-submitted");
+		return $okay.self::getTemplatePart("testimonial-form");
 	}
 	
 	public static function registerStylesScripts(){
@@ -147,7 +153,7 @@ class Testimonials {
 			'filter_items_list'     => __( 'Filter testimonials list', 'tropical_testimonials' ),
 		);
 		$rewrite = array(
-			'slug'                  => 'testimonial',
+			'slug'                  => 'testimonials',
 			'with_front'            => true,
 			'pages'                 => true,
 			'feeds'                 => true,
