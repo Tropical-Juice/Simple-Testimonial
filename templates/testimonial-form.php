@@ -1,5 +1,6 @@
+<?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly  ?>
 	<div class="testimonial" dir="ltr" lang="nl-NL" role="form" style="max-width:400px;">
-		<h1>Vul hier uw testimonial in</h1>
+		<h1>Vul hier uw beoordeling in</h1>
 		<form class="testimonial-form" enctype="multipart/form-data" id="testimonial_form" method="post" name="testimonial_form" novalidate="novalidate">
 			<label><?php _e('Company', TROPICAL_TESTIMONIALS_TEXT_DOMAIN) ?></label><br>
 			<input type="text" name="organization"><br>
