@@ -10,6 +10,7 @@
 	License: GPLv3
 	License URI: https://www.gnu.org/licenses/gpl-3.0.html
 	Text Domain: tropical_testimonials
+	Domain Path: translations
 */
 if ( ! defined( 'ABSPATH' ) ) exit; 
 define( 'TROPICAL_TESTIMONIALS_VERSION', '1.0' );
