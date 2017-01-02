@@ -210,12 +210,12 @@ class Testimonials {
 	
 	public static function registerStylesScripts(){
 		//styles
-		wp_register_style("RateYo", "//cdnjs.cloudflare.com/ajax/libs/rateYo/2.2.0/jquery.rateyo.min.css", array(), "2.2.0");
+		wp_register_style("RateYo", TROPICAL_TESTIMONIALS_PLUGIN_URI."assets/css/jquery.rateyo.min.css", array(), "2.2.0");
 		wp_register_style("testimonial-css", TROPICAL_TESTIMONIALS_PLUGIN_URI."assets/css/styles.css", array(), "1.0.0");
 		
 		//scripts
 		wp_register_script("testimonial-js", TROPICAL_TESTIMONIALS_PLUGIN_URI."assets/js/app.js", array(), "1.0.0", true);
-		wp_register_script("RateYo", "//cdnjs.cloudflare.com/ajax/libs/rateYo/2.2.0/jquery.rateyo.min.js", array('jquery', 'testimonial-js'), "2.2.0", true);
+		wp_register_script("RateYo", TROPICAL_TESTIMONIALS_PLUGIN_URI."assets/js/jquery.rateyo.min.js", array('jquery', 'testimonial-js'), "2.2.0", true);
 	}
 	
 	private static function getTemplatePart($slug, $name = null){
