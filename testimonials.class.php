@@ -215,6 +215,7 @@ class Testimonials {
 		foreach($testimonials as $testimonial){
 			$output .= self::getTemplatePart("testimonial","overview-item", $testimonial);
 		}
+		wp_enqueue_style("testimonial-css");
 		return $output;
 	}
 	
