@@ -213,7 +213,7 @@ class Testimonials {
 		$output = '';
 		$testimonials = self::getTestimonialsAsArray();
 		foreach($testimonials as $testimonial){
-			$output .= self::getTemplatePart("testimonial","single");
+			$output .= self::getTemplatePart("testimonial","overview-item", $testimonial);
 		}
 		return $output;
 	}
@@ -243,18 +243,27 @@ class Testimonials {
 		wp_register_script("RateYo", TROPICAL_TESTIMONIALS_PLUGIN_URI."assets/js/jquery.rateyo.min.js", array('jquery', 'testimonial-js'), "2.2.0", true);
 	}
 	
-	private static function getTemplatePart($slug, $name = null){
+	private static function getTemplatePart($slug, $name = null, $data = null){
 		$templates = array();
 	    $name = (string) $name;
 	    if ( '' !== $name )
 	        $templates[] = "{$slug}-{$name}.php";
 	    $templates[] = "{$slug}.php";
 	    $template = locate_template($templates, true, false);
+		
 		if( !$template ){
-			if(!file_exists(dirname(__FILE__) . "/templates/$templates[0]")) return;
-			ob_start();
-			include( dirname(__FILE__) . "/templates/$templates[0]" );
-			return ob_get_clean();
+			if(file_exists(dirname(__FILE__) . "/templates/$templates[0]")){
+				ob_start();
+				include( dirname(__FILE__) . "/templates/$templates[0]" );
+				return ob_get_clean();
+			}elseif(file_exists(dirname(__FILE__) . "/templates/$templates[1]")){
+				ob_start();
+				include( dirname(__FILE__) . "/templates/$templates[1]" );
+				return ob_get_clean();
+			}else{
+				return '';
+			}
+			
 		}
 		if( $template ){
 			if(!file_exists($template)) return;
@@ -266,33 +275,33 @@ class Testimonials {
 	
 	public static function registerPostTypes(){
 		$labels = array(
-			'name'                  => _x( 'Testimonials', 'Post Type General Name', 'tropical_testimonials' ),
-			'singular_name'         => _x( 'Testimonial', 'Post Type Singular Name', 'tropical_testimonials' ),
-			'menu_name'             => __( 'Testimonials', 'tropical_testimonials' ),
-			'name_admin_bar'        => __( 'Testimonials', 'tropical_testimonials' ),
-			'archives'              => __( 'Testimonials', 'tropical_testimonials' ),
-			'attributes'            => __( 'Testimonials Attributes', 'tropical_testimonials' ),
-			'parent_item_colon'     => __( 'Parent testimonial:', 'tropical_testimonials' ),
-			'all_items'             => __( 'All testimonials', 'tropical_testimonials' ),
-			'add_new_item'          => __( 'Add New Testimonial', 'tropical_testimonials' ),
-			'add_new'               => __( 'Add New', 'tropical_testimonials' ),
-			'new_item'              => __( 'New testimonial', 'tropical_testimonials' ),
-			'edit_item'             => __( 'Edit Testimonial', 'tropical_testimonials' ),
-			'update_item'           => __( 'Update Testimonial', 'tropical_testimonials' ),
-			'view_item'             => __( 'View Testimonial', 'tropical_testimonials' ),
-			'view_items'            => __( 'View Testimonials', 'tropical_testimonials' ),
-			'search_items'          => __( 'Search Testimonials', 'tropical_testimonials' ),
-			'not_found'             => __( 'Not found', 'tropical_testimonials' ),
-			'not_found_in_trash'    => __( 'Not found in Trash', 'tropical_testimonials' ),
-			'featured_image'        => __( 'Featured Image', 'tropical_testimonials' ),
-			'set_featured_image'    => __( 'Set featured image', 'tropical_testimonials' ),
-			'remove_featured_image' => __( 'Remove featured image', 'tropical_testimonials' ),
-			'use_featured_image'    => __( 'Use as featured image', 'tropical_testimonials' ),
-			'insert_into_item'      => __( 'Insert into testimonials', 'tropical_testimonials' ),
-			'uploaded_to_this_item' => __( 'Uploaded to this testimonial', 'tropical_testimonials' ),
-			'items_list'            => __( 'Testimonials list', 'tropical_testimonials' ),
-			'items_list_navigation' => __( 'Testimonials list navigation', 'tropical_testimonials' ),
-			'filter_items_list'     => __( 'Filter testimonials list', 'tropical_testimonials' ),
+			'name'                  => _x( 'Testimonials', 'Post Type General Name', TROPICAL_TESTIMONIALS_TEXT_DOMAIN ),
+			'singular_name'         => _x( 'Testimonial', 'Post Type Singular Name', TROPICAL_TESTIMONIALS_TEXT_DOMAIN ),
+			'menu_name'             => __( 'Testimonials', TROPICAL_TESTIMONIALS_TEXT_DOMAIN ),
+			'name_admin_bar'        => __( 'Testimonials', TROPICAL_TESTIMONIALS_TEXT_DOMAIN ),
+			'archives'              => __( 'Testimonials', TROPICAL_TESTIMONIALS_TEXT_DOMAIN ),
+			'attributes'            => __( 'Testimonials Attributes', TROPICAL_TESTIMONIALS_TEXT_DOMAIN ),
+			'parent_item_colon'     => __( 'Parent testimonial:', TROPICAL_TESTIMONIALS_TEXT_DOMAIN ),
+			'all_items'             => __( 'All testimonials', TROPICAL_TESTIMONIALS_TEXT_DOMAIN ),
+			'add_new_item'          => __( 'Add New Testimonial', TROPICAL_TESTIMONIALS_TEXT_DOMAIN ),
+			'add_new'               => __( 'Add New', TROPICAL_TESTIMONIALS_TEXT_DOMAIN ),
+			'new_item'              => __( 'New testimonial', TROPICAL_TESTIMONIALS_TEXT_DOMAIN ),
+			'edit_item'             => __( 'Edit Testimonial', TROPICAL_TESTIMONIALS_TEXT_DOMAIN ),
+			'update_item'           => __( 'Update Testimonial', TROPICAL_TESTIMONIALS_TEXT_DOMAIN ),
+			'view_item'             => __( 'View Testimonial', TROPICAL_TESTIMONIALS_TEXT_DOMAIN ),
+			'view_items'            => __( 'View Testimonials', TROPICAL_TESTIMONIALS_TEXT_DOMAIN ),
+			'search_items'          => __( 'Search Testimonials', TROPICAL_TESTIMONIALS_TEXT_DOMAIN ),
+			'not_found'             => __( 'Not found', TROPICAL_TESTIMONIALS_TEXT_DOMAIN ),
+			'not_found_in_trash'    => __( 'Not found in Trash', TROPICAL_TESTIMONIALS_TEXT_DOMAIN ),
+			'featured_image'        => __( 'Featured Image', TROPICAL_TESTIMONIALS_TEXT_DOMAIN ),
+			'set_featured_image'    => __( 'Set featured image', TROPICAL_TESTIMONIALS_TEXT_DOMAIN ),
+			'remove_featured_image' => __( 'Remove featured image', TROPICAL_TESTIMONIALS_TEXT_DOMAIN ),
+			'use_featured_image'    => __( 'Use as featured image', TROPICAL_TESTIMONIALS_TEXT_DOMAIN ),
+			'insert_into_item'      => __( 'Insert into testimonials', TROPICAL_TESTIMONIALS_TEXT_DOMAIN ),
+			'uploaded_to_this_item' => __( 'Uploaded to this testimonial', TROPICAL_TESTIMONIALS_TEXT_DOMAIN ),
+			'items_list'            => __( 'Testimonials list', TROPICAL_TESTIMONIALS_TEXT_DOMAIN ),
+			'items_list_navigation' => __( 'Testimonials list navigation', TROPICAL_TESTIMONIALS_TEXT_DOMAIN ),
+			'filter_items_list'     => __( 'Filter testimonials list', TROPICAL_TESTIMONIALS_TEXT_DOMAIN ),
 		);
 		$rewrite = array(
 			'slug'                  => 'testimonials',
@@ -301,8 +310,8 @@ class Testimonials {
 			'feeds'                 => true,
 		);
 		$args = array(
-			'label'                 => __( 'Testimonial', 'tropical_testimonials' ),
-			'description'           => __( 'Testimonials', 'tropical_testimonials' ),
+			'label'                 => __( 'Testimonial', TROPICAL_TESTIMONIALS_TEXT_DOMAIN ),
+			'description'           => __( 'Testimonials', TROPICAL_TESTIMONIALS_TEXT_DOMAIN ),
 			'labels'                => $labels,
 			'supports'              => array( 'title', 'editor', 'comments', ),
 			'taxonomies'            => array( 'category', 'post_tag' ),
