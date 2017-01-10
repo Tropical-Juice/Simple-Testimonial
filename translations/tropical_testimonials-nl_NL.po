@@ -1,13 +1,15 @@
 msgid ""
 msgstr ""
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Project-Id-Version: Simple Google Testimonials\n"
-"POT-Creation-Date: 2016-12-30 16:28+0100\n"
-"PO-Revision-Date: 2016-12-30 16:43+0100\n"
+"POT-Creation-Date: 2017-01-10 15:45+0100\n"
+"PO-Revision-Date: 2017-01-10 15:46+0100\n"
+"Last-Translator: \n"
 "Language-Team: \n"
+"Language: nl_NL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.8.11\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-WPHeader: testimonials.php\n"
@@ -15,44 +17,55 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
 "esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
 "_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
-"Last-Translator: \n"
-"Language: nl_NL\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: templates/testimonial-form.php:4
-msgid "Company"
-msgstr "Bedrijf"
+#: templates/testimonial-form.php:2
+msgid "en-EN"
+msgstr "nl-NL"
 
-#: templates/testimonial-form.php:6
-msgid "Your name"
-msgstr "Uw naam"
-
-#: templates/testimonial-form.php:8
-msgid "Your position"
-msgstr "Uw functie"
-
-#: templates/testimonial-form.php:10
-msgid "Your rating"
-msgstr "Uw rating"
-
-#: templates/testimonial-form.php:16
-msgid "Your testimonial"
-msgstr "Uw review"
-
-#: templates/testimonial-form.php:17
+#: templates/testimonial-form.php:3 templates/testimonial-form.php:18
 msgid "Please enter your testimonial"
 msgstr "Voer een review in"
 
-#: templates/testimonial-form.php:18
+#: templates/testimonial-form.php:5
+msgid "Company"
+msgstr "Bedrijf"
+
+#: templates/testimonial-form.php:7
+msgid "Your name"
+msgstr "Uw naam"
+
+#: templates/testimonial-form.php:9
+msgid "Your position"
+msgstr "Uw functie"
+
+#: templates/testimonial-form.php:11
+msgid "Your rating"
+msgstr "Uw rating"
+
+#: templates/testimonial-form.php:17
+msgid "Your testimonial"
+msgstr "Uw review"
+
+#: templates/testimonial-form.php:19
 msgid "Add testimonial"
 msgstr "Voeg review toe"
 
-#: templates/testimonial-submitted.php:2
+#: templates/testimonial-overview-item.php:2
+msgid "at"
+msgstr "bij"
+
+#: templates/testimonial-overview-item.php:3
+#, php-format
+msgid "Gives a score of %1$s out of %2$s"
+msgstr "Geeft een beoordeling van %1$s uit %2$s"
+
+#: templates/testimonial-submitted.php:3
 msgid "Enter your testimonial."
 msgstr "Voor uw review in."
 
-#: templates/testimonial-submitted.php:3
+#: templates/testimonial-submitted.php:4
 msgid ""
 "Thank you for submitting your testimonial. It can take some time before it "
 "is visible."
@@ -69,110 +82,110 @@ msgstr "Alle velden zijn verplicht"
 msgid "Testimonial of %s"
 msgstr "Beoordeling van %s"
 
-#: testimonials.class.php:244
+#: testimonials.class.php:279
 msgctxt "Post Type General Name"
 msgid "Testimonials"
 msgstr "Beoordelingen"
 
-#: testimonials.class.php:245
+#: testimonials.class.php:280
 msgctxt "Post Type Singular Name"
 msgid "Testimonial"
 msgstr "Beoordeling"
 
-#: testimonials.class.php:246 testimonials.class.php:247
-#: testimonials.class.php:248 testimonials.class.php:280
+#: testimonials.class.php:281 testimonials.class.php:282
+#: testimonials.class.php:283 testimonials.class.php:315
 msgid "Testimonials"
 msgstr "Beoordelingen"
 
-#: testimonials.class.php:249
+#: testimonials.class.php:284
 msgid "Testimonials Attributes"
 msgstr "Beoordeling Attributen"
 
-#: testimonials.class.php:250
+#: testimonials.class.php:285
 msgid "Parent testimonial:"
 msgstr "Hoofd beoordeling"
 
-#: testimonials.class.php:251
+#: testimonials.class.php:286
 msgid "All testimonials"
 msgstr "Alle Beoordelingen"
 
-#: testimonials.class.php:252
+#: testimonials.class.php:287
 msgid "Add New Testimonial"
 msgstr "Voeg nieuwe beoordeling toe"
 
-#: testimonials.class.php:253
+#: testimonials.class.php:288
 msgid "Add New"
 msgstr "Voeg toe"
 
-#: testimonials.class.php:254
+#: testimonials.class.php:289
 msgid "New testimonial"
 msgstr "Nieuwe beoordeling"
 
-#: testimonials.class.php:255
+#: testimonials.class.php:290
 msgid "Edit Testimonial"
 msgstr "Pas beoordeling aan"
 
-#: testimonials.class.php:256
+#: testimonials.class.php:291
 msgid "Update Testimonial"
 msgstr "Verander beoordeling"
 
-#: testimonials.class.php:257
+#: testimonials.class.php:292
 msgid "View Testimonial"
 msgstr "Bekijk beoordeling"
 
-#: testimonials.class.php:258
+#: testimonials.class.php:293
 msgid "View Testimonials"
 msgstr "Bekijk beoordelingen"
 
-#: testimonials.class.php:259
+#: testimonials.class.php:294
 msgid "Search Testimonials"
 msgstr "Doorzoek Beoordelingen"
 
-#: testimonials.class.php:260
+#: testimonials.class.php:295
 msgid "Not found"
 msgstr "Niet gevonden"
 
-#: testimonials.class.php:261
+#: testimonials.class.php:296
 msgid "Not found in Trash"
 msgstr "Niet gevonden in prullenbak"
 
-#: testimonials.class.php:262
+#: testimonials.class.php:297
 msgid "Featured Image"
 msgstr "Uitgelichte afbeelding"
 
-#: testimonials.class.php:263
+#: testimonials.class.php:298
 msgid "Set featured image"
 msgstr "Uitgelichte afbeelding instellen"
 
-#: testimonials.class.php:264
+#: testimonials.class.php:299
 msgid "Remove featured image"
 msgstr "Verwijder uitgelichte afbeelding"
 
-#: testimonials.class.php:265
+#: testimonials.class.php:300
 msgid "Use as featured image"
 msgstr "Gebruik als uitgelichte afbeelding"
 
-#: testimonials.class.php:266
+#: testimonials.class.php:301
 msgid "Insert into testimonials"
 msgstr "Voeg in bij beoordeling"
 
-#: testimonials.class.php:267
+#: testimonials.class.php:302
 msgid "Uploaded to this testimonial"
 msgstr "Geüpload naar deze beoordeling"
 
-#: testimonials.class.php:268
+#: testimonials.class.php:303
 msgid "Testimonials list"
 msgstr "Lijst van beoordelingen"
 
-#: testimonials.class.php:269
+#: testimonials.class.php:304
 msgid "Testimonials list navigation"
 msgstr "Beoordelingen lijst nagivatie"
 
-#: testimonials.class.php:270
+#: testimonials.class.php:305
 msgid "Filter testimonials list"
 msgstr "Filter beoordelingen lijst"
 
-#: testimonials.class.php:279
+#: testimonials.class.php:314
 msgid "Testimonial"
 msgstr "Beoordeling"
 
