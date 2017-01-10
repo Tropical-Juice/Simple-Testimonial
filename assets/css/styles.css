@@ -64,3 +64,19 @@
 	border: 1px solid RGBA(204, 59, 79, 1.00);
 	background: RGBA(204, 59, 79, 0.1);
 }
+
+.testminials--list__single{
+	padding: 1rem 1rem;
+	border:1px solid #C4CDD4;
+	box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.12);
+	margin-bottom: 2rem;
+	border-radius: 5px;
+}
+.testimonials--item__meta, .testimonials--item__body{margin: 0px;}
+.testimonials--item__meta{
+	font-style: italic;
+	color: #888;
+	border-bottom: 1px solid #C4CDD4;
+	display: inline-block;
+	margin-bottom: 0.9rem;
+}
