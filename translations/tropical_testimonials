@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Simple Google Testimonials\n"
-"POT-Creation-Date: 2016-12-30 16:28+0100\n"
-"PO-Revision-Date: 2016-12-30 16:27+0100\n"
+"POT-Creation-Date: 2017-01-10 15:37+0100\n"
+"PO-Revision-Date: 2017-01-10 15:36+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -20,39 +20,52 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: templates/testimonial-form.php:4
-msgid "Company"
+#: templates/testimonial-form.php:2
+msgid "en-EN"
 msgstr ""
 
-#: templates/testimonial-form.php:6
-msgid "Your name"
-msgstr ""
-
-#: templates/testimonial-form.php:8
-msgid "Your position"
-msgstr ""
-
-#: templates/testimonial-form.php:10
-msgid "Your rating"
-msgstr ""
-
-#: templates/testimonial-form.php:16
-msgid "Your testimonial"
-msgstr ""
-
-#: templates/testimonial-form.php:17
+#: templates/testimonial-form.php:3 templates/testimonial-form.php:18
 msgid "Please enter your testimonial"
 msgstr ""
 
-#: templates/testimonial-form.php:18
+#: templates/testimonial-form.php:5
+msgid "Company"
+msgstr ""
+
+#: templates/testimonial-form.php:7
+msgid "Your name"
+msgstr ""
+
+#: templates/testimonial-form.php:9
+msgid "Your position"
+msgstr ""
+
+#: templates/testimonial-form.php:11
+msgid "Your rating"
+msgstr ""
+
+#: templates/testimonial-form.php:17
+msgid "Your testimonial"
+msgstr ""
+
+#: templates/testimonial-form.php:19
 msgid "Add testimonial"
 msgstr ""
 
-#: templates/testimonial-submitted.php:2
-msgid "Enter your testimonial."
+#: templates/testimonial-overview-item.php:2
+msgid "at"
+msgstr ""
+
+#: templates/testimonial-overview-item.php:3
+#, php-format
+msgid "Gives a score of %1$s out of %2$s"
 msgstr ""
 
 #: templates/testimonial-submitted.php:3
+msgid "Enter your testimonial."
+msgstr ""
+
+#: templates/testimonial-submitted.php:4
 msgid ""
 "Thank you for submitting your testimonial. It can take some time before it "
 "is visible."
@@ -67,110 +80,110 @@ msgstr ""
 msgid "Testimonial of %s"
 msgstr ""
 
-#: testimonials.class.php:244
+#: testimonials.class.php:279
 msgctxt "Post Type General Name"
 msgid "Testimonials"
 msgstr ""
 
-#: testimonials.class.php:245
+#: testimonials.class.php:280
 msgctxt "Post Type Singular Name"
 msgid "Testimonial"
 msgstr ""
 
-#: testimonials.class.php:246 testimonials.class.php:247
-#: testimonials.class.php:248 testimonials.class.php:280
+#: testimonials.class.php:281 testimonials.class.php:282
+#: testimonials.class.php:283 testimonials.class.php:315
 msgid "Testimonials"
 msgstr ""
 
-#: testimonials.class.php:249
+#: testimonials.class.php:284
 msgid "Testimonials Attributes"
 msgstr ""
 
-#: testimonials.class.php:250
+#: testimonials.class.php:285
 msgid "Parent testimonial:"
 msgstr ""
 
-#: testimonials.class.php:251
+#: testimonials.class.php:286
 msgid "All testimonials"
 msgstr ""
 
-#: testimonials.class.php:252
+#: testimonials.class.php:287
 msgid "Add New Testimonial"
 msgstr ""
 
-#: testimonials.class.php:253
+#: testimonials.class.php:288
 msgid "Add New"
 msgstr ""
 
-#: testimonials.class.php:254
+#: testimonials.class.php:289
 msgid "New testimonial"
 msgstr ""
 
-#: testimonials.class.php:255
+#: testimonials.class.php:290
 msgid "Edit Testimonial"
 msgstr ""
 
-#: testimonials.class.php:256
+#: testimonials.class.php:291
 msgid "Update Testimonial"
 msgstr ""
 
-#: testimonials.class.php:257
+#: testimonials.class.php:292
 msgid "View Testimonial"
 msgstr ""
 
-#: testimonials.class.php:258
+#: testimonials.class.php:293
 msgid "View Testimonials"
 msgstr ""
 
-#: testimonials.class.php:259
+#: testimonials.class.php:294
 msgid "Search Testimonials"
 msgstr ""
 
-#: testimonials.class.php:260
+#: testimonials.class.php:295
 msgid "Not found"
 msgstr ""
 
-#: testimonials.class.php:261
+#: testimonials.class.php:296
 msgid "Not found in Trash"
 msgstr ""
 
-#: testimonials.class.php:262
+#: testimonials.class.php:297
 msgid "Featured Image"
 msgstr ""
 
-#: testimonials.class.php:263
+#: testimonials.class.php:298
 msgid "Set featured image"
 msgstr ""
 
-#: testimonials.class.php:264
+#: testimonials.class.php:299
 msgid "Remove featured image"
 msgstr ""
 
-#: testimonials.class.php:265
+#: testimonials.class.php:300
 msgid "Use as featured image"
 msgstr ""
 
-#: testimonials.class.php:266
+#: testimonials.class.php:301
 msgid "Insert into testimonials"
 msgstr ""
 
-#: testimonials.class.php:267
+#: testimonials.class.php:302
 msgid "Uploaded to this testimonial"
 msgstr ""
 
-#: testimonials.class.php:268
+#: testimonials.class.php:303
 msgid "Testimonials list"
 msgstr ""
 
-#: testimonials.class.php:269
+#: testimonials.class.php:304
 msgid "Testimonials list navigation"
 msgstr ""
 
-#: testimonials.class.php:270
+#: testimonials.class.php:305
 msgid "Filter testimonials list"
 msgstr ""
 
-#: testimonials.class.php:279
+#: testimonials.class.php:314
 msgid "Testimonial"
 msgstr ""
 
