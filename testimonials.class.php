@@ -197,6 +197,7 @@ class Testimonials {
 	
 	public static function addShortCodes(){
 		add_shortcode( 'testimonial', array('Testimonials', 'shortcodeTestimonialInput') );
+		add_shortcode( 'testimonial-list', array('Testimonials', 'shortcodeTestimonialList') );
 	}
 	
 	public static function shortcodeTestimonialInput(){
@@ -205,7 +206,31 @@ class Testimonials {
 		wp_enqueue_style("RateYo");
 		wp_enqueue_style("testimonial-css");
 		if(self::showForm()) return self::getTemplatePart("testimonial-submitted");
-		return self::getTemplatePart("testimonial-form");
+		return self::getTemplatePart("testimonial", "form");
+	}
+	
+	public static function shortcodeTestimonialList(){
+		$output = '';
+		$testimonials = self::getTestimonialsAsArray();
+		foreach($testimonials as $testimonial){
+			$output .= self::getTemplatePart("testimonial","single");
+		}
+		return $output;
+	}
+	
+	private static function getTestimonialsAsArray(){
+		$output = array();
+		$posts = get_posts(array(
+		    'post_type'   => 'testimonials',
+		    'post_status' => 'publish',
+		    'posts_per_page' => -1,
+		    'fields' => 'ids'
+		    )
+		);
+		foreach($posts as $post){
+			array_push($output, get_post_meta($post));
+		}
+		return $output;
 	}
 	
 	public static function registerStylesScripts(){
