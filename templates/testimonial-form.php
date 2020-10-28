@@ -1,4 +1,6 @@
-<?php if ( ! defined( 'ABSPATH' ) ) exit; ?>
+<?php if (! defined('ABSPATH')) {
+    exit;
+} ?>
 	<div class="testimonial" dir="ltr" lang="<?php _e('en-EN', TROPICAL_TESTIMONIALS_TEXT_DOMAIN) ?>" role="form" style="max-width:400px;">
 		<h1><?php _e('Please enter your testimonial', TROPICAL_TESTIMONIALS_TEXT_DOMAIN) ?></h1>
 		<form class="testimonial-form" enctype="multipart/form-data" id="testimonial_form" method="post" name="testimonial_form" novalidate="novalidate">
